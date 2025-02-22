@@ -6,7 +6,6 @@ import com.fongmi.android.tv.api.config.VodConfig;
 import com.fongmi.android.tv.bean.Parse;
 import com.fongmi.android.tv.bean.Result;
 import com.fongmi.android.tv.impl.ParseCallback;
-import com.fongmi.android.tv.ui.custom.CustomWebView;
 import com.fongmi.android.tv.utils.UrlUtil;
 import com.github.catvod.net.OkHttp;
 import com.github.catvod.utils.Json;
@@ -28,7 +27,6 @@ import okhttp3.Headers;
 
 public class ParseJob implements ParseCallback {
 
-    private final List<CustomWebView> webViews;
     private ExecutorService executor;
     private ExecutorService infinite;
     private ParseCallback callback;
@@ -41,7 +39,6 @@ public class ParseJob implements ParseCallback {
     public ParseJob(ParseCallback callback) {
         this.executor = Executors.newFixedThreadPool(2);
         this.infinite = Executors.newCachedThreadPool();
-        this.webViews = new ArrayList<>();
         this.callback = callback;
     }
 
@@ -183,7 +180,6 @@ public class ParseJob implements ParseCallback {
     }
 
     private void startWeb(String key, String from, Map<String, String> headers, String url, String click) {
-        App.post(() -> webViews.add(CustomWebView.create(App.get()).start(key, from, headers, url, click, this, !url.contains("player/?url="))));
     }
 
     private Map<String, String> getHeader(JsonObject object) {
@@ -210,8 +206,6 @@ public class ParseJob implements ParseCallback {
     }
 
     private void stopWeb() {
-        for (CustomWebView webView : webViews) webView.stop(false);
-        webViews.clear();
     }
 
     public void stop() {

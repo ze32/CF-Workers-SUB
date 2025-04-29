@@ -15,10 +15,6 @@ public class P2PClass {
         return doxstarthttpd(bArr, bArr2);
     }
 
-    public void P2Pdoxendhttpd() {
-        doxendhttpd();
-    }
-
     public void P2Pdoxstart(byte[] bArr) {
         doxstart(bArr);
     }

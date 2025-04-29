@@ -807,12 +807,6 @@ public class LiveActivity extends BaseActivity implements Clock.Callback, GroupP
         hideCenter();
     }
 
-    private void setConfirm() {
-        confirm = true;
-        Notify.show(R.string.app_exit);
-        App.post(() -> confirm = false, 5000);
-    }
-
     public int getToggleCount() {
         return toggleCount;
     }
@@ -963,8 +957,6 @@ public class LiveActivity extends BaseActivity implements Clock.Callback, GroupP
             hideInfo();
         } else if (isVisible(mBinding.recycler)) {
             hideUI();
-        } else if (!confirm) {
-            setConfirm();
         } else {
             super.onBackPressed();
         }

@@ -1043,7 +1043,7 @@ public class VideoActivity extends BaseActivity implements Clock.Callback, Custo
         mBinding.control.getRoot().setVisibility(View.VISIBLE);
         showDisplayInfo();
         checkPlayImg(mPlayers.isPlaying());
-        setR1Callback();
+        //setR1Callback();
     }
 
     private void hideControl() {
@@ -1080,7 +1080,7 @@ public class VideoActivity extends BaseActivity implements Clock.Callback, Custo
     }
 
     private void setR1Callback() {
-        App.post(mR1, Constant.INTERVAL_HIDE);
+        //App.post(mR1, Constant.INTERVAL_HIDE);
     }
 
     private void setArtwork(String url) {

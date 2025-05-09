@@ -499,7 +499,7 @@ public class LiveActivity extends BaseActivity implements Clock.Callback, Custom
         mBinding.control.bottom.setVisibility(isLock() ? View.GONE : View.VISIBLE);
         mBinding.control.top.setVisibility(isLock() ? View.GONE : View.VISIBLE);
         mBinding.control.getRoot().setVisibility(View.VISIBLE);
-        setR1Callback();
+        //setR1Callback();
         hideInfo();
     }
 
@@ -555,7 +555,7 @@ public class LiveActivity extends BaseActivity implements Clock.Callback, Custom
     }
 
     private void setR1Callback() {
-        App.post(mR1, Constant.INTERVAL_HIDE);
+        //App.post(mR1, Constant.INTERVAL_HIDE);
     }
 
     private void setR3Callback() {

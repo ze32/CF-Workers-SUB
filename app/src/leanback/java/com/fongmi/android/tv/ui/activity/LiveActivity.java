@@ -446,7 +446,7 @@ public class LiveActivity extends BaseActivity implements Clock.Callback, GroupP
         mBinding.control.getRoot().setVisibility(View.VISIBLE);
         mBinding.widget.top.setVisibility(View.VISIBLE);
         view.requestFocus();
-        setR1Callback();
+        //setR1Callback();
         hideInfo();
     }
 
@@ -503,9 +503,9 @@ public class LiveActivity extends BaseActivity implements Clock.Callback, GroupP
         App.post(mR2, Constant.INTERVAL_TRAFFIC);
     }
 
-    private void setR1Callback() {
-        App.post(mR1, Constant.INTERVAL_HIDE);
-    }
+//     private void setR1Callback() {
+//         App.post(mR1, Constant.INTERVAL_HIDE);
+//     }
 
     private void setR3Callback() {
         App.post(mR3, Constant.INTERVAL_HIDE);
@@ -817,14 +817,14 @@ public class LiveActivity extends BaseActivity implements Clock.Callback, GroupP
 
     @Override
     public boolean dispatchKeyEvent(KeyEvent event) {
-        if (isVisible(mBinding.control.getRoot())) setR1Callback();
+        //if (isVisible(mBinding.control.getRoot())) setR1Callback();
         if (mKeyDown.hasEvent(event)) mKeyDown.onKeyDown(event);
         return super.dispatchKeyEvent(event);
     }
 
     @Override
     public void setUITimer() {
-        App.post(mR4, Constant.INTERVAL_HIDE);
+        //App.post(mR4, Constant.INTERVAL_HIDE);
     }
 
     @Override

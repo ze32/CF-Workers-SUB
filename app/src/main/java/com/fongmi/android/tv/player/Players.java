@@ -103,7 +103,8 @@ public class Players implements Player.Listener, IMediaPlayer.Listener, Analytic
     }
 
     public Players init(Activity activity) {
-        player = Setting.getPlayer();
+        //player = Setting.getPlayer();
+        player = EXO;
         builder = new StringBuilder();
         runnable = ErrorEvent::timeout;
         formatter = new Formatter(builder, Locale.getDefault());
@@ -186,7 +187,8 @@ public class Players implements Player.Listener, IMediaPlayer.Listener, Analytic
 
     public void setPlayer(int player) {
         if (this.player != player) stop();
-        this.player = player;
+        //this.player = player;
+        this.player = EXO;
     }
 
     public int getDecode(int player) {
@@ -330,7 +332,7 @@ public class Players implements Player.Listener, IMediaPlayer.Listener, Analytic
     }
 
     public void togglePlayer() {
-        setPlayer(isExo() ? SYS : ++player);
+        //setPlayer(isExo() ? SYS : ++player);
     }
 
     public void nextPlayer() {

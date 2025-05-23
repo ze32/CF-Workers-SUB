@@ -37,6 +37,8 @@ import androidx.media3.datasource.HttpDataSource.InvalidContentTypeException;
 import androidx.media3.datasource.HttpDataSource.InvalidResponseCodeException;
 import androidx.media3.datasource.HttpUtil;
 import androidx.media3.datasource.TransferListener;
+
+import com.fongmi.android.tv.player.extractor.JianPian;
 import com.google.common.base.Predicate;
 import com.google.common.net.HttpHeaders;
 import com.google.common.util.concurrent.SettableFuture;
@@ -439,7 +441,7 @@ public class OkHttpDataSource extends BaseDataSource implements HttpDataSource {
       builder.header(header.getKey(), header.getValue());
     }
 
-    @Nullable String rangeHeader = buildRangeRequestHeader(position, length);
+    @Nullable String rangeHeader = dataSpec.uri.getPort() == JianPian.p2pPort ? buildRangeRequestHeaderJP(position, length) : buildRangeRequestHeader(position, length);
     if (rangeHeader != null) {
       builder.addHeader(HttpHeaders.RANGE, rangeHeader);
     }
@@ -576,5 +578,16 @@ public class OkHttpDataSource extends BaseDataSource implements HttpDataSource {
       response = null;
     }
     responseByteStream = null;
+  }
+
+  public static String buildRangeRequestHeaderJP(long position, long length) {
+    StringBuilder rangeValue = new StringBuilder();
+    rangeValue.append("bytes=");
+    rangeValue.append(position);
+    rangeValue.append("-");
+    if (length != C.LENGTH_UNSET) {
+      rangeValue.append(position + length - 1);
+    }
+    return rangeValue.toString();
   }
 }

@@ -99,7 +99,6 @@ public class SettingFragment extends BaseFragment implements BackupCallback, Con
         mBinding.dohText.setText(getDohList()[getDohIndex()]);
         mBinding.versionText.setText(BuildConfig.VERSION_NAME);
         mBinding.backupText.setText((backup = ResUtil.getStringArray(R.array.select_backup))[Setting.getBackupMode()]);
-        mBinding.aboutText.setText(BuildConfig.FLAVOR_mode + "-" + BuildConfig.FLAVOR_api + "-" + BuildConfig.FLAVOR_abi);
         mBinding.proxyText.setText(UrlUtil.scheme(Setting.getProxy()));
         setCacheText();
     }
@@ -277,7 +276,6 @@ public class SettingFragment extends BaseFragment implements BackupCallback, Con
     }
 
     private void onAbout(View view) {
-        mBinding.aboutText.setText(BuildConfig.FLAVOR_mode + "-" + BuildConfig.FLAVOR_api + "-" + BuildConfig.FLAVOR_abi);
     }
 
     private void onVersion(View view) {

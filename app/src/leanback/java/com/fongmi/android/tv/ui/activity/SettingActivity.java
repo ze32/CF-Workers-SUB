@@ -87,7 +87,6 @@ public class SettingActivity extends BaseActivity implements BackupCallback, Con
         mBinding.versionText.setText(BuildConfig.VERSION_NAME);
         mBinding.proxyText.setText(UrlUtil.scheme(Setting.getProxy()));
         mBinding.backupText.setText((backup = ResUtil.getStringArray(R.array.select_backup))[Setting.getBackupMode()]);
-        mBinding.aboutText.setText(BuildConfig.FLAVOR_mode + "-" + BuildConfig.FLAVOR_api + "-" + BuildConfig.FLAVOR_abi);
         setCacheText();
     }
 
@@ -292,7 +291,6 @@ public class SettingActivity extends BaseActivity implements BackupCallback, Con
     }
 
     private void onAbout(View view) {
-        mBinding.aboutText.setText(BuildConfig.FLAVOR_mode + "-" + BuildConfig.FLAVOR_api + "-" + BuildConfig.FLAVOR_abi);
     }
 
     private void setDoh(View view) {

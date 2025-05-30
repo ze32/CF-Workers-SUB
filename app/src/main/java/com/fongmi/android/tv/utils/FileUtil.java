@@ -125,6 +125,14 @@ public class FileUtil {
         return size;
     }
 
+    public static void clearApiCache() {
+        App.post(() -> {
+            Notify.show("自动清理接口缓存中。。。");
+            Path.clear(Path.files());
+            Path.clear(Path.cache());
+        });
+    }
+
     private static String byteCountToDisplaySize(long size) {
         if (size <= 0) return "0 KB";
         String[] units = new String[]{"bytes", "KB", "MB", "GB", "TB"};

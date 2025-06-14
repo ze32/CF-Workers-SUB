@@ -275,7 +275,7 @@ public class CastActivity extends BaseActivity implements CustomKeyDownCast.List
     private void showControl() {
         mBinding.control.getRoot().setVisibility(View.VISIBLE);
         mBinding.control.reset.requestFocus();
-        setR1Callback();
+        //setR1Callback();
     }
 
     private void hideControl() {
@@ -295,7 +295,7 @@ public class CastActivity extends BaseActivity implements CustomKeyDownCast.List
     }
 
     private void setR1Callback() {
-        App.post(mR1, Constant.INTERVAL_HIDE);
+        //App.post(mR1, Constant.INTERVAL_HIDE);
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
@@ -450,7 +450,7 @@ public class CastActivity extends BaseActivity implements CustomKeyDownCast.List
     @Override
     public boolean dispatchKeyEvent(KeyEvent event) {
         if (KeyUtil.isMenuKey(event)) onToggle();
-        if (isVisible(mBinding.control.getRoot())) setR1Callback();
+        //if (isVisible(mBinding.control.getRoot())) setR1Callback();
         if (isGone(mBinding.control.getRoot()) && mKeyDown.hasEvent(event)) return mKeyDown.onKeyDown(event);
         return super.dispatchKeyEvent(event);
     }

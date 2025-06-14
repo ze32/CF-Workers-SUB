@@ -556,7 +556,7 @@ public class LiveActivity extends BaseActivity implements Clock.Callback, Custom
     }
 
     private void setR1Callback() {
-        App.post(mR1, Constant.INTERVAL_HIDE);
+        //App.post(mR1, Constant.INTERVAL_HIDE);
     }
 
     private void setR3Callback() {

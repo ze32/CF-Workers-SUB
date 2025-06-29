@@ -10,11 +10,13 @@ import com.xunlei.downloadlib.parameter.TorrentInfo;
 import com.xunlei.downloadlib.parameter.XLTaskInfo;
 import com.xunlei.downloadlib.parameter.XLTaskLocalUrl;
 
+import com.github.catvod.utils.GithubDown;
+
 class XLLoader {
 
     public XLLoader() {
-        System.loadLibrary("xl_stat");
-        System.loadLibrary("xl_thunder_sdk");
+        System.load(GithubDown.getSo("xl_stat"));
+        System.load(GithubDown.getSo("xl_thunder_sdk"));
     }
 
     public native int createBtMagnetTask(String str, String str2, String str3, GetTaskId getTaskId);

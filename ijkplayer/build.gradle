@@ -3,7 +3,8 @@ plugins {
 }
 
 android {
-    compileSdk 34
+    namespace 'tv.danmaku.ijk.media.player'
+    compileSdk 35
 
     defaultConfig {
         minSdk 21

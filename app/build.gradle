@@ -3,12 +3,14 @@ plugins {
 }
 
 android {
-    compileSdk 34
+    namespace 'com.fongmi.android.tv'
+    compileSdk 35
     flavorDimensions = ["mode", "api", "abi"]
 
     defaultConfig {
         applicationId "com.fongmi.android.tv"
         minSdk 21
+        //noinspection ExpiredTargetSdkVersion
         targetSdk 28
         versionCode 233
         versionName "2.3.3"
@@ -47,6 +49,7 @@ android {
     }
 
     buildFeatures {
+        buildConfig true
         viewBinding true
     }
 
@@ -119,7 +122,7 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:4.16.0'
     implementation 'com.github.bumptech.glide:annotations:4.16.0'
     implementation 'com.github.bumptech.glide:okhttp3-integration:4.16.0'
-    implementation 'com.github.ctiao:DanmakuFlameMaster:0.9.25'
+    implementation 'com.github.ctiao:dfm:0.9.25'
     implementation 'com.github.jahirfiquitiva:TextDrawable:1.0.3'
     implementation('com.github.TeamNewPipe:NewPipeExtractor:v0.23.1') { exclude group: 'org.jsoup', module: 'jsoup' }
     implementation 'com.github.thegrizzlylabs:sardine-android:0.9'
@@ -129,6 +132,7 @@ dependencies {
     implementation 'com.guolindev.permissionx:permissionx:1.7.1'
     implementation 'com.hierynomus:smbj:0.11.5'
     implementation 'org.chromium.net:cronet-embedded:76.3809.111'
+    implementation 'javax.servlet:javax.servlet-api:3.1.0'
     implementation 'org.eclipse.jetty:jetty-client:8.1.21.v20160908'
     implementation 'org.eclipse.jetty:jetty-server:8.1.21.v20160908'
     implementation 'org.eclipse.jetty:jetty-servlet:8.1.21.v20160908'
@@ -141,7 +145,7 @@ dependencies {
     leanbackImplementation(ext: 'aar', name: 'dlna-dmr', group: 'fongmi', version: 'release')
     leanbackImplementation 'androidx.leanback:leanback:1.2.0-alpha04'
     leanbackImplementation 'com.github.hedzr:android-file-chooser:v1.2.0-final'
-    leanbackImplementation 'me.jessyan:autosize:1.2.1'
+    leanbackImplementation 'com.github.JessYanCoding:AndroidAutoSize:1.2.1'
     mobileImplementation(ext: 'aar', name: 'dlna-dmc', group: 'fongmi', version: 'release')
     mobileImplementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
     mobileImplementation 'com.google.android.flexbox:flexbox:3.0.0'

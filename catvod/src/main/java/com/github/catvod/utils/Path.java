@@ -53,7 +53,7 @@ public class Path {
     }
 
     public static File tv() {
-        return mkdir(new File(root() + File.separator + "TV"));
+        return mkdir(new File(download() + File.separator + "TV"));
     }
 
     public static File so() {
@@ -208,5 +208,11 @@ public class Path {
             e.printStackTrace();
             return file;
         }
+    }
+
+    public static void clearDownloadedCache() {
+        Path.clear(new File(Path.cache("jpa") + File.separator + "jpali" + File.separator + "Downloads"));
+        Path.clear(Path.thunder());
+        Path.clear(Path.js());
     }
 }

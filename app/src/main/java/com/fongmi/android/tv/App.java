@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.os.HandlerCompat;
 
+import com.fongmi.android.tv.BuildConfig;
 import com.fongmi.android.tv.api.config.LiveConfig;
 import com.fongmi.android.tv.ui.activity.CrashActivity;
 import com.fongmi.android.tv.utils.LanguageUtil;
@@ -19,6 +20,7 @@ import com.fongmi.android.tv.utils.Notify;
 import com.github.catvod.Init;
 import com.github.catvod.bean.Doh;
 import com.github.catvod.net.OkHttp;
+import com.github.catvod.utils.GithubDown;
 import com.github.catvod.utils.Path;
 import com.google.gson.Gson;
 import com.orhanobut.logger.AndroidLogAdapter;
@@ -101,6 +103,7 @@ public class App extends Application {
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
         Init.set(base);
+        GithubDown.ABI = BuildConfig.FLAVOR_abi;
     }
 
     @Override

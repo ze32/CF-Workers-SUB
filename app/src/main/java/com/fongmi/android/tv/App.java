@@ -14,6 +14,7 @@ import androidx.core.os.HandlerCompat;
 
 import com.fongmi.android.tv.BuildConfig;
 import com.fongmi.android.tv.api.config.LiveConfig;
+import com.fongmi.android.tv.bean.Config;
 import com.fongmi.android.tv.ui.activity.CrashActivity;
 import com.fongmi.android.tv.utils.Notify;
 import com.github.catvod.Init;
@@ -110,6 +111,8 @@ public class App extends Application {
         super.onCreate();
         Path.clearDownloadedCache();
         Notify.createChannel();
+        Config.create(0, "https://gitlab.com/ylede1/tvbox/-/raw/master/DC.json");
+        Config.create(1, "https://gitlab.com/ylede1/tvbox/-/raw/master/DC.json");
         Logger.addLogAdapter(getLogAdapter());
         OkHttp.get().setProxy(Setting.getProxy());
         OkHttp.get().setDoh(Doh.objectFrom(Setting.getDoh()));
